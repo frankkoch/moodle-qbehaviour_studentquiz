@@ -1,0 +1,46 @@
+.studentquiz_behaviour {
+    margin: 0 0 10px 5px;
+}
+
+.studentquiz_behaviour label,
+.im-feedback .studentquiz_behaviour label {
+    margin-right: 15px;
+}
+
+.studentquiz_behaviour .vote {
+    margin-bottom: 20px;
+}
+
+.studentquiz_behaviour textarea {
+    box-sizing: border-box;
+    height: 100px;
+    width: 100%;
+}
+
+.studentquiz_behaviour .comment_list div {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+    padding: 15px 0;
+    position: relative;
+}
+
+.studentquiz_behaviour .comment_list div span.remove_action {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    text-decoration: underline;
+    top: 0;
+}
+
+.studentquiz_behaviour .comment_list div span.remove_action:hover {
+    text-decoration: none;
+}
+
+.studentquiz_behaviour .comment_list div p:last-child {
+    margin: 0;
+}
+
+div.none,
+.hidden {
+    display: none;
+}
