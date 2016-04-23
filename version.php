@@ -25,7 +25,7 @@
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-_
+
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qbehaviour_studentquiz';
