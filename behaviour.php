@@ -34,7 +34,7 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
     public function __construct(question_attempt $qa, $preferredbehaviour)
     {
         global $PAGE;
-        $PAGE->requires->jquery();
+        $PAGE->requires->js('/question/behaviour/studentquiz/jquery-1.12.3.min.js',true);
         $PAGE->requires->js('/question/behaviour/studentquiz/studentquiz.js', true);
         parent::__construct($qa, $preferredbehaviour);
     }

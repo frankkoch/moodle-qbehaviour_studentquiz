@@ -55,7 +55,7 @@ function comment_renderer($question_id) {
                 html_writer::span('remove', 'remove_action',
                 array(
                     'data-id' => $comment->id,
-                    'data-question_id' => $questionid
+                    'data-question_id' => $comment->questionid
                 )):
                 '')
                 . html_writer::tag('p', $date . ' | ' . $username)
