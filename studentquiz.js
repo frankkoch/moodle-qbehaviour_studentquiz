@@ -46,7 +46,37 @@ $(document).ready(function() {
                     $(this).addClass('star');
                 }
             });
+
+            $('.studentquiz_behaviour .vote .error').addClass('hide');
         });
+    });
+
+    $('.submitbtns input[name="next"]').on('click', function(event) {
+        $that = $(this);
+
+        if (
+            $('.im-controls input[type="submit"]').filter(function() {
+                return this.name.match(/^q.+\-submit$/);
+            }).is(':disabled')
+        ) {
+            var has_rated = false;
+            $('.rating span').each(function() {
+                if ($(this).hasClass('star')) {
+                    has_rated = true;
+                }
+            });
+
+            if (has_rated) {
+                $that.submit();
+                return true;
+            }
+
+            $('.studentquiz_behaviour .vote .error').removeClass('hide');
+            return false;
+        } else {
+            $that.submit();
+            return true; 
+        }
     });
 
     bind_buttons();

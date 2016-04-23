@@ -73,7 +73,7 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
         }
         return get_string('vote_title', 'qbehaviour_studentquiz')
             . $this->output->help_icon('vote_help', 'qbehaviour_studentquiz') . ': ' 
-            . html_writer::div($choices, 'rating');
+            . html_writer::div($choices, 'rating') . html_writer::div(get_string('vote_error', 'qbehaviour_studentquiz'), 'hide error');
     }
 
     public function controls(question_attempt $qa, question_display_options $options) {

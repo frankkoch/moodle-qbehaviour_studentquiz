@@ -52,6 +52,12 @@ div.none, .hidden {
     unicode-bidi: bidi-override;
 }
 
+.studentquiz_behaviour .vote .error {
+    color: red;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
 .studentquiz_behaviour .vote .rating .rateable.star-empty:hover,
 .studentquiz_behaviour .vote .rating .rateable.star-empty:hover ~ .rateable.star-empty {
     background-image: url([[pix:qbehaviour_studentquiz|star_icon]]);
