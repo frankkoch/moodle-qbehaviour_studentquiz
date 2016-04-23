@@ -15,7 +15,7 @@ if (!isset($_POST['id']) || empty($_POST['id'])) {
 header('Content-Type: text/html; charset=utf-8');
 
 if (check_created_permission()) {
-    $DB->delete_records('studentquiz_comment', array('studentquiz_comment_id' => intval($_POST['id'])));
+    $DB->delete_records('studentquiz_comment', array('id' => intval($_POST['id'])));
 } else {
     return http_response_code(401);
 }

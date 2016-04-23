@@ -32,23 +32,25 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
             $attributes['disabled'] = 'disabled';
         }
 
+        $selected = intval($selected);
+
+        $rateable = '';
+        if (!$readonly) {
+            $rateable = 'rateable ';
+        }
+
         $choices = '';
-        $votes = [1,2,3,4,5];
+        $votes = [5,4,3,2,1];
         foreach ($votes as $vote) {
-            $id = 'q' . $question_id . '_' . $vote;
-            $attributes['id'] = $id;
-            $attributes['value'] = $vote;
-            if ($selected == $vote) {
-                $attributes['checked'] = 'checked';
-            } else {
-                unset($attributes['checked']);
+            $class = 'star-empty';
+            if ($vote <= $selected) {
+                $class = 'star';
             }
-            $choices .= ' ' .
-                html_writer::tag('label', html_writer::empty_tag('input', $attributes) .
-                    $vote, array('for' => $id));
+            $choices .= html_writer::span('', $rateable . $class, array('data-rate' => $vote, 'data-questionid' => $question_id));
         }
         return get_string('vote_title', 'qbehaviour_studentquiz')
-            . $this->output->help_icon('vote_help', 'qbehaviour_studentquiz') . ': ' . $choices;
+            . $this->output->help_icon('vote_help', 'qbehaviour_studentquiz') . ': ' 
+            . html_writer::div($choices, 'rating');
     }
 
     public function controls(question_attempt $qa, question_display_options $options) {
@@ -61,7 +63,6 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
                                  question_display_options $options) {
 
         $output = parent::mark_summary($qa, $qoutput, $options);
-        $output .= ' Test out put';
         return $output;
     }
 

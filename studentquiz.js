@@ -13,6 +13,19 @@ $(document).ready(function() {
         })
     });
 
+    $('.studentquiz_behaviour .vote .rating .rateable').on('click', function() {
+        var rate = $(this).attr('data-rate');
+        $.post('../../question/behaviour/studentquiz/save.php', { save: 'vote', questionid: $(this).attr('data-questionid'), rate: rate }, function() {
+            $('.studentquiz_behaviour .vote .rating span').each(function(index) {
+                if ($(this).attr('data-rate') <= rate) {
+                    $(this).removeClass('star-empty');
+                    $(this).removeClass('star');
+                    $(this).addClass('star');
+                }
+            });
+        });
+    });
+
     bind_buttons();
 });
 

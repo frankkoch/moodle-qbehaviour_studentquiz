@@ -3,7 +3,8 @@
 }
 
 .studentquiz_behaviour label,
-.im-feedback .studentquiz_behaviour label {
+.im-feedback .studentquiz_behaviour label,
+.studentquiz_behaviour span.label { 
     margin-right: 15px;
 }
 
@@ -40,7 +41,37 @@
     margin: 0;
 }
 
-div.none,
-.hidden {
+div.none, .hidden {
     display: none;
+}
+
+.studentquiz_behaviour .vote .rating {
+    cursor: not-allowed;
+    display: inline-block;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.studentquiz_behaviour .vote .rating .rateable.star-empty:hover,
+.studentquiz_behaviour .vote .rating .rateable.star-empty:hover ~ .rateable.star-empty {
+    background-image: url([[pix:qbehaviour_studentquiz|star_icon]]);
+}
+
+.studentquiz_behaviour .star,
+.studentquiz_behaviour .star-empty {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+.studentquiz_behaviour .vote .rating .rateable {
+    cursor: pointer;
+}
+
+.studentquiz_behaviour .star {
+    background-image: url([[pix:qbehaviour_studentquiz|star_icon]]);
+}
+
+.studentquiz_behaviour .star-empty {
+    background-image: url([[pix:qbehaviour_studentquiz|star_empty_icon]]);
 }
