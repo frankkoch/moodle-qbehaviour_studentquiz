@@ -95,9 +95,9 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
         global $DB, $USER;
 
         $value = -1; $readonly = false;
-        $vote = $DB->get_record('studentquiz_vote', array('question_id' => $question_id, 'user_userid' => $USER->id));
+        $vote = $DB->get_record('studentquiz_vote', array('questionid' => $question_id, 'userid' => $USER->id));
         if ($vote !== false) {
-            $value = $vote->studentquiz_vote_point;
+            $value = $vote->vote;
             $readonly = true;
         }
 

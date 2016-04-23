@@ -9,8 +9,8 @@ function comment_renderer($question_id) {
     $mod_name = 'qbehaviour_studentquiz';
 
     $comments = $DB->get_records(
-        'studentquiz_comment', array('question_id' => $question_id),
-        'studentquiz_comment_id DESC'
+        'studentquiz_comment', array('questionid' => $question_id),
+        'id DESC'
     );
 
     if (empty($comments)) {
@@ -24,19 +24,19 @@ function comment_renderer($question_id) {
         if ($index > 1) {
             $hide = 'hidden';
         }
-        $date = date('d.m.Y H:i', $comment->studentquiz_comment_created);
-        $user = $DB->get_record('user', array('id' => $comment->user_userid));
+        $date = date('d.m.Y H:i', $comment->created);
+        $user = $DB->get_record('user', array('id' => $comment->userid));
         $username = ($user !== false? $user->username: '');
         $html .= html_writer::div(
             (check_created_permission()?
                 html_writer::span('remove', 'remove_action',
                 array(
-                    'data-id' => $comment->studentquiz_comment_id,
-                    'data-question_id' => $question_id
+                    'data-id' => $comment->id,
+                    'data-question_id' => $questionid
                 )):
                 '')
                 . html_writer::tag('p', $date . ' | ' . $username)
-                . html_writer::tag('p', $comment->studentquiz_comment_text),
+                . html_writer::tag('p', $comment->comment),
                 $hide
             );
 
