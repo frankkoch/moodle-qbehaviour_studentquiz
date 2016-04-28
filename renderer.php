@@ -40,11 +40,11 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
     /**
      *  Generate some HTML to display comment list 
      * 
-     * @param  int $question_id Question id
+     * @param  int $questionid Question id
      * @return string HTML fragment
      */
-    public function comment_list($question_id) {
-        return comment_renderer($question_id);
+    public function comment_list($questionid) {
+        return comment_renderer($questionid);
     }
 
     /**
@@ -92,10 +92,10 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
      * @param  boolean $readonly describes if rating is readonly
      * @return string HTML fragment
      */
-    protected function vote_choices($question_id, $selected, $readonly) {
+    protected function vote_choices($questionid, $selected, $readonly) {
         $attributes = array(
             'type' => 'radio',
-            'name' => 'q' . $question_id,
+            'name' => 'q' . $questionid,
         );
 
         if ($readonly) {
@@ -116,7 +116,7 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
             if ($vote <= $selected) {
                 $class = 'star';
             }
-            $choices .= html_writer::span('', $rateable . $class, array('data-rate' => $vote, 'data-questionid' => $question_id));
+            $choices .= html_writer::span('', $rateable . $class, array('data-rate' => $vote, 'data-questionid' => $questionid));
         }
         return get_string('vote_title', 'qbehaviour_studentquiz')
             . $this->output->help_icon('vote_help', 'qbehaviour_studentquiz') . ': ' 
@@ -126,14 +126,14 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
     /**
      * Generate some HTML to display comment form for add comment
      * 
-     * @param  int $question_id Question id 
+     * @param  int $questionid Question id 
      * @return string HTML fragment 
      */
-    protected function comment_form($question_id) {
+    protected function comment_form($questionid) {
         return html_writer::tag('p', get_string('add_comment', 'qbehaviour_studentquiz') . $this->output->help_icon('comment_help', 'qbehaviour_studentquiz') . ':')
             . html_writer::tag('p', html_writer::tag(
                 'textarea', '',
-                 array('class' => 'add_comment_field', 'name' => 'q' . $question_id)))
+                 array('class' => 'add_comment_field', 'name' => 'q' . $questionid)))
             . html_writer::tag('p', html_writer::tag(
                 'button',
                 get_string('add_comment', 'qbehaviour_studentquiz'),
@@ -144,31 +144,31 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
     /**
      *  Generate some HTML to display rating
      * 
-     * @param  int $question_id Question id
+     * @param  int $questionid Question id
      * @return string HTML fragment 
      */
-    protected function render_vote($question_id) {
+    protected function render_vote($questionid) {
         global $DB, $USER;
 
         $value = -1; $readonly = false;
-        $vote = $DB->get_record('studentquiz_vote', array('questionid' => $question_id, 'userid' => $USER->id));
+        $vote = $DB->get_record('studentquiz_vote', array('questionid' => $questionid, 'userid' => $USER->id));
         if ($vote !== false) {
             $value = $vote->vote;
             $readonly = true;
         }
 
-        return html_writer::div($this->vote_choices($question_id, $value , $readonly), 'vote');
+        return html_writer::div($this->vote_choices($questionid, $value , $readonly), 'vote');
     }
 
     /**
      *  Generate some HTML to display the complete comment fragment
      * 
-     * @param  int $question_id Question id 
+     * @param  int $questionid Question id 
      * @return string HTML fragment 
      */
-    protected function render_comment($question_id) {
+    protected function render_comment($questionid) {
         return html_writer::div(
-            $this->comment_form($question_id)
-                . html_writer::div($this->comment_list($question_id), 'comment_list'), 'comments');
+            $this->comment_form($questionid)
+                . html_writer::div($this->comment_list($questionid), 'comment_list'), 'comments');
     }
 }

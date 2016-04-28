@@ -52,20 +52,20 @@ function check_created_permission() {
 /**
  * Generate some HTML to render comments
  * 
- * @param  int $question_id Question id 
+ * @param  int $questionid Question id 
  * @return string HTML fragment 
  */
-function comment_renderer($question_id) {
+function comment_renderer($questionid) {
     global $DB;
-    $mod_name = 'qbehaviour_studentquiz';
+    $modname = 'qbehaviour_studentquiz';
 
     $comments = $DB->get_records(
-        'studentquiz_comment', array('questionid' => $question_id),
+        'studentquiz_comment', array('questionid' => $questionid),
         'id DESC'
     );
 
     if (empty($comments)) {
-        return html_writer::div(get_string('no_comments', $mod_name));
+        return html_writer::div(get_string('no_comments', $modname));
     }
 
     $html = '';
@@ -96,8 +96,8 @@ function comment_renderer($question_id) {
 
     if (count($comments) > 2) {
         $html .= html_writer::div(
-            html_writer::tag('button', get_string('show_more', $mod_name), array('type' => 'button', 'class' => 'show_more'))
-            . html_writer::tag('button', get_string('show_less', $mod_name), array('type' => 'button', 'class' => 'show_less hidden')),
+            html_writer::tag('button', get_string('show_more', $modname), array('type' => 'button', 'class' => 'show_more'))
+            . html_writer::tag('button', get_string('show_less', $modname), array('type' => 'button', 'class' => 'show_less hidden')),
             'button_controls'
         );
     }
