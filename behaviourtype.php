@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO
+ *  Defines the question behaviour type studentquiz class
  *
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
@@ -25,6 +25,13 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * This class represents the type of behaviour, rather than the instance of the
+ * behaviour which control a particular question attempt.
+ *
+ * @copyright  2016 HSR (http://www.hsr.ch)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class qbehaviour_studentquiz_type extends question_behaviour_type  {
     public function is_archetypal() {
         return true;

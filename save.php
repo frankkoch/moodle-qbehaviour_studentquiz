@@ -16,7 +16,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO
+ * Ajax requests to this script saves the ratings and comments.
+ * Require POST params: 
+ * "save" can be "vote" or "comment" (save type),
+ * "questionid" is necessary for every request,
+ * "rate" is necessary if the save type is "vote"
+ * "text" is necessary if the save type is "comment"
  *
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
@@ -51,6 +56,11 @@ switch($_POST['save']) {
 
 header('Content-Type: text/html; charset=utf-8');
 
+/**
+ * saves question rating
+ * 
+ * @param  stdClass $data requires userid, questionid
+ */
 function save_vote($data) {
     global $DB, $USER;
 
@@ -68,6 +78,11 @@ function save_vote($data) {
     }
 }
 
+/**
+ * saves question comment
+ * 
+ * @param  stdClass $data requires userid, questionid
+ */
 function save_comment($data) {
     global $DB;
 

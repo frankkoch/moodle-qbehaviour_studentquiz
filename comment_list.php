@@ -16,8 +16,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO
- *
+ * Ajax request to this script gives all comments of a question back. 
+ * Requires GET param "question_id"
+ * 
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,14 +27,12 @@
 define('AJAX_SCRIPT', true);
 define('MOODLE_INTERNAL', true);
 
-require_once(dirname(__FILE__) . '/../../../config.php');
-require_once(dirname(__FILE__) . '/comment_renderer.php');
+require_once(dirname(__FILE__) . '/lib.php');
 
-
-if (!isset($_GET['question_id']) || empty($_GET['question_id'])) {
+if (!isset($_GET['questionid']) || empty($_GET['questionid'])) {
     return http_response_code(404);
 }
 
 header('Content-Type: text/html; charset=utf-8');
 
-echo comment_renderer(intval($_GET['question_id']));
+echo comment_renderer(intval($_GET['questionid']));

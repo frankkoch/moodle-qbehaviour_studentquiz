@@ -16,8 +16,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO
- *
+ * Question behaviour where the student can submit questions one at a
+ * time for immediate feedback with additional functionality to rate and 
+ * comment the questions.
+ *  
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,13 +29,23 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(dirname(__FILE__) . '/../immediatefeedback/behaviour.php');
 
-
+/**
+ * Question behaviour for immediate feedback with voting and commenting questions.
+ *
+ * After the student submit his answer, he have to rate the question, may write 
+ * a comment or read the discousion around the question.
+ *
+ * Everything else match the immediate feedback behaviour.
+ *
+ * @copyright  2016 HSR (http://www.hsr.ch)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
-    const IS_ARCHETYPAL = true;
 
-    public function __construct(question_attempt $qa, $preferredbehaviour)
-    {
+    public function __construct(question_attempt $qa, $preferredbehaviour) {
         global $PAGE;
+
+        // add jQuery and studentquiz frontend logic everything else didnt work!
         $PAGE->requires->js('/question/behaviour/studentquiz/jquery-1.12.3.min.js',true);
         $PAGE->requires->js('/question/behaviour/studentquiz/studentquiz.js', true);
         parent::__construct($qa, $preferredbehaviour);

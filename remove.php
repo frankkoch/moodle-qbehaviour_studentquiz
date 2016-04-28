@@ -16,7 +16,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO
+ * Ajax requests to this script removes comment.
+ * Only teacher or higher roles can remove comments.
  *
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
@@ -26,8 +27,7 @@
 define('AJAX_SCRIPT', true);
 define('MOODLE_INTERNAL', true);
 
-require_once(dirname(__FILE__) . '/../../../config.php');
-require_once(dirname(__FILE__) . '/check_permission.php');
+require_once(dirname(__FILE__) . '/lib.php');
 
 
 if (!isset($_POST['id']) || empty($_POST['id'])) {

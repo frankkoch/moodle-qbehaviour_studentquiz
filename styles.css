@@ -53,7 +53,7 @@ div.none, .hidden {
 }
 
 .studentquiz_behaviour .vote .error {
-    color: red;
+    color: #ff0000;
     font-weight: bold;
     margin-top: 5px;
 }

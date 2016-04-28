@@ -16,7 +16,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO
+ * Studentquiz qbehaviour lib 
  *
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
@@ -25,8 +25,36 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(dirname(__FILE__) . '/check_permission.php');
+require_once(dirname(__FILE__) . '/../../../config.php');
 
+/**
+ * Check permission if is no student
+ * 
+ * @return boolean the current user is not a student 
+ */
+function check_created_permission() {
+    global $USER;
+
+    $admins = get_admins();
+    foreach ($admins as $admin) {
+        if ($USER->id == $admin->id) {
+            return true;
+        }
+    }
+
+    if (!user_has_role_assignment($USER->id,5)) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Generate some HTML to render comments
+ * 
+ * @param  int $question_id Question id 
+ * @return string HTML fragment 
+ */
 function comment_renderer($question_id) {
     global $DB;
     $mod_name = 'qbehaviour_studentquiz';
