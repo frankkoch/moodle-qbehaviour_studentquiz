@@ -14,32 +14,36 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * TODO
+ * Javascript for save rating and save, remove and listing comments 
  *
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
- 
 $(document).ready(function() {
-    $('.studentquiz_behaviour input[type="radio"]').on('click', function() {
-        $.post('../../question/behaviour/studentquiz/save.php', { save: 'vote', questionid: $(this).attr('name').substr(1), rate: $(this).val() });
-    });
-
+    /**
+     *  Ajax request POST on CLICK for add comment
+     */
     $('.studentquiz_behaviour .add_comment').on('click', function() {
-        var $field = $('.studentquiz_behaviour textarea.add_comment_field');
+        var $comments = $(this).closest('.comments');
+        var $field =  $comments.find('.add_comment_field');
         var question_id = $field.attr('name').substr(1);
+        var $commentlist = $comments.children('.comment_list');
 
         $.post('../../question/behaviour/studentquiz/save.php', { save: 'comment', questionid: question_id, text: $field.val() }, function() {
             $field.val('');
-            get_comment_list(question_id);
+            get_comment_list(question_id, $commentlist);
         })
     });
 
+    /**
+     * Ajax request POST on CLICK for add rating
+     */
     $('.studentquiz_behaviour .vote .rating .rateable').on('click', function() {
         var rate = $(this).attr('data-rate');
+        var $that = $(this);
         $.post('../../question/behaviour/studentquiz/save.php', { save: 'vote', questionid: $(this).attr('data-questionid'), rate: rate }, function() {
-            $('.studentquiz_behaviour .vote .rating span').each(function(index) {
+            $that.closest('.rating').children('span').each(function(index) { 
                 if ($(this).attr('data-rate') <= rate) {
                     $(this).removeClass('star-empty');
                     $(this).removeClass('star');
@@ -51,6 +55,10 @@ $(document).ready(function() {
         });
     });
 
+    /**
+     * On CLICK check if student submitted result and has rated if not
+     * abort next and show error for rating
+     */
     $('.submitbtns input[name="next"]').on('click', function(event) {
         $that = $(this);
 
@@ -82,6 +90,9 @@ $(document).ready(function() {
     bind_buttons();
 });
 
+/**
+ * Binding action buttons after refresh comment list
+ */
 function bind_buttons() {
     $('.studentquiz_behaviour .show_more').on('click', function() {
         $('.studentquiz_behaviour .comment_list div').removeClass('hidden');
@@ -102,15 +113,20 @@ function bind_buttons() {
 
     $('.studentquiz_behaviour .remove_action').on('click', function() {
         var question_id = $(this).attr('data-question_id');
+        var $commentlist = $(this).closest('.comments').children('.comment_list');
         $.post('../../question/behaviour/studentquiz/remove.php', { id: $(this).attr('data-id') }, function() {
-            get_comment_list(question_id);
+            get_comment_list(question_id, $commentlist);
         });
     });
 }
-
-function get_comment_list(question_id) {
-    $.get('../../question/behaviour/studentquiz/comment_list.php?question_id=' + question_id, function(data) {
-        $('div.comment_list').html(data);
+/**
+ * Ajax request GET to get comment list
+ * @param int question_id Question id
+ */
+function get_comment_list(question_id, $commentlist) {
+    console.log(question_id);
+    $.get('../../question/behaviour/studentquiz/comment_list.php?questionid=' + question_id, function(data) {
+        $commentlist.html(data);
         bind_buttons();
     });
 }
