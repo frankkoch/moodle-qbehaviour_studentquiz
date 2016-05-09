@@ -16,5 +16,6 @@ The studentquiz question behaviour have a dependency to the studentquiz activity
 Download the zip file from github. Unzip the downloaded file *moodle-qbehaviour_studentquiz-master.zip*
 rename it to *studentquiz* and move it to your *moodle_installation_path/question/behaviour/*. Login as 
 an Admin and follow installation instructions. 
+
 Or install the studentquiz behaviour over the *Site administration -> Plugins -> Install plugins*. 
 Note that the foldername and the zip have to be named *studentquiz*.
