@@ -19,3 +19,9 @@ an Admin and follow installation instructions.
 
 Or install the studentquiz behaviour over the *Site administration -> Plugins -> Install plugins*. 
 Note that the foldername and the zip have to be named *studentquiz*.
+
+## Licence
+[GNU GPL v3 or later](http://www.gnu.org/copyleft/gpl.html) 
+
+## Moodle Version
+Is implemented for Moodle v3. Not tested with Moodle v2.
