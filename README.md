@@ -6,7 +6,7 @@ and comment questions in quizzes. After the immediate feedback of a question
 the behaviour shows rating stars and user comments, the user have to rate the question and 
 may like to add a comment.
 
-![Screenshot](illustration.png "Screenshot")
+![Screenshot](pix/illustration.png "Screenshot")
 
 ## Installation
 
