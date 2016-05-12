@@ -23,7 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Studentquiz immediatefeedback';
+$string['pluginname'] = 'Studentquiz Immediate feedback';
 $string['no_comments'] = 'No comments';
 $string['add_comment'] = 'Add comment';
 $string['show_more'] = 'Show more';
