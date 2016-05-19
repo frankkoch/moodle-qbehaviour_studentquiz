@@ -34,3 +34,4 @@ $string['vote_help'] = 'Rate this question is it a good question?';
 $string['vote_error'] = 'Please Rate';
 $string['comment_help'] = 'Write a comment to the question';
 $string['comment_help_help'] = 'Write a comment to the question';
+$string['answeredandverified'] = 'Answered and verified';

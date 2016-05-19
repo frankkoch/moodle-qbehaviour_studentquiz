@@ -55,7 +55,14 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
         return parent::process_save($pendingstep);
     }
 
+
     public function get_state_string($showcorrectness) {
-        return $this->qa->get_state()->default_string($showcorrectness);
+        $state = $this->qa->get_state();
+        if ($state == question_state::$gradedright) {
+            return get_string('answeredandverified', 'qbehaviour_studentquiz');
+        } else {
+            return $this->qa->get_state()->default_string($showcorrectness);
+        }
     }
+
 }
