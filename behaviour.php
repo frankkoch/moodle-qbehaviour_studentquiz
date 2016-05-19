@@ -50,4 +50,12 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
         $PAGE->requires->js('/question/behaviour/studentquiz/studentquiz.js', true);
         parent::__construct($qa, $preferredbehaviour);
     }
+
+    public function process_save(question_attempt_pending_step $pendingstep) {
+        return parent::process_save($pendingstep);
+    }
+
+    public function get_state_string($showcorrectness) {
+        return $this->qa->get_state()->default_string($showcorrectness);
+    }
 }
