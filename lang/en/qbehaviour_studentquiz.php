@@ -34,4 +34,8 @@ $string['vote_help'] = 'Rate this question is it a good question?';
 $string['vote_error'] = 'Please Rate';
 $string['comment_help'] = 'Write a comment to the question';
 $string['comment_help_help'] = 'Write a comment to the question';
-$string['answeredandverified'] = 'Answered and verified';
+
+/** moodle quiz state override */
+$string['answeredandmodified'] = 'Answered and verified';
+$string['notyetanswered'] = 'Not yet answered';
+$string['answered'] = 'Answered';

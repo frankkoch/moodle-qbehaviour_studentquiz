@@ -57,11 +57,19 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
 
 
     public function get_state_string($showcorrectness) {
-        $state = $this->qa->get_state();
-        if ($state == question_state::$gradedright) {
-            return get_string('answeredandverified', 'qbehaviour_studentquiz');
-        } else {
-            return $this->qa->get_state()->default_string($showcorrectness);
+        switch($this->qa->get_state()) {
+            case question_state::$gradedpartial:
+            case question_state::$gradedright:
+            case question_state::$invalid:
+            case question_state::$gradedwrong:
+                return get_string('answeredandmodified', 'qbehaviour_studentquiz');
+            case question_state::$complete:
+                return get_string('answered', 'qbehaviour_studentquiz');
+                break;
+            case question_state::$todo:
+                return get_string('notyetanswered', 'qbehaviour_studentquiz');
+            default:
+                return $this->qa->get_state()->default_string($showcorrectness);
         }
     }
 
