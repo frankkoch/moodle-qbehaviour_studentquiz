@@ -52,7 +52,8 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
     }
 
     public function process_save(question_attempt_pending_step $pendingstep) {
-        return parent::process_save($pendingstep);
+        $status = question_behaviour_with_save::process_save($pendingstep);
+        return $status;
     }
 
 
