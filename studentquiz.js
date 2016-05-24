@@ -43,10 +43,12 @@ $(document).ready(function() {
         var rate = $(this).attr('data-rate');
         var $that = $(this);
         $.post('../../question/behaviour/studentquiz/save.php', { save: 'vote', questionid: $(this).attr('data-questionid'), rate: rate }, function() {
-            $that.closest('.rating').children('span').each(function(index) { 
+            var $ratingStars = $that.closest('.rating').children('span');
+            $ratingStars.removeClass('star');
+            $ratingStars.addClass('star-empty');
+            $ratingStars.each(function(index) { 
                 if ($(this).attr('data-rate') <= rate) {
                     $(this).removeClass('star-empty');
-                    $(this).removeClass('star');
                     $(this).addClass('star');
                 }
             });
