@@ -72,11 +72,13 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
      */
     public function feedback(question_attempt $qa, question_display_options $options) {
         if ($options->feedback) {
+            global $CFG;
             return html_writer::end_tag('div')
                 . html_writer::end_tag('div')
                 . html_writer::div(
                     $this->render_vote($qa->get_question()->id)
-                        . $this->render_comment($qa->get_question()->id), 'studentquiz_behaviour')
+                    . $this->render_comment($qa->get_question()->id), 'studentquiz_behaviour')
+                    . html_writer::tag('input', '', array('type' => 'hidden', 'name' => 'baseurlmoodle', 'id' => 'baseurlmoodle', 'value' => $CFG->wwwroot))
                 . html_writer::start_div('none')
                 . html_writer::start_div('none');
         }

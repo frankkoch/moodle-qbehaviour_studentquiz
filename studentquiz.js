@@ -30,7 +30,7 @@ $(document).ready(function() {
         var questionid = $field.attr('name').substr(1);
         var $commentlist = $comments.children('.comment_list');
 
-        $.post('../../question/behaviour/studentquiz/save.php', { save: 'comment', questionid: questionid, text: $field.val() }, function() {
+        $.post($('#baseurlmoodle').val() + '/question/behaviour/studentquiz/save.php', { save: 'comment', questionid: questionid, text: $field.val() }, function() {
             $field.val('');
             get_comment_list(questionid, $commentlist);
         })
@@ -42,7 +42,7 @@ $(document).ready(function() {
     $('.studentquiz_behaviour .vote .rating .rateable').on('click', function() {
         var rate = $(this).attr('data-rate');
         var $that = $(this);
-        $.post('../../question/behaviour/studentquiz/save.php', { save: 'vote', questionid: $(this).attr('data-questionid'), rate: rate }, function() {
+        $.post($('#baseurlmoodle').val() + '/question/behaviour/studentquiz/save.php', { save: 'vote', questionid: $(this).attr('data-questionid'), rate: rate }, function() {
             var $ratingStars = $that.closest('.rating').children('span');
             $ratingStars.removeClass('star');
             $ratingStars.addClass('star-empty');
@@ -116,7 +116,7 @@ function bind_buttons() {
     $('.studentquiz_behaviour .remove_action').on('click', function() {
         var questionid = $(this).attr('data-question_id');
         var $commentlist = $(this).closest('.comments').children('.comment_list');
-        $.post('../../question/behaviour/studentquiz/remove.php', { id: $(this).attr('data-id') }, function() {
+        $.post($('#baseurlmoodle').val() + 'question/behaviour/studentquiz/remove.php', { id: $(this).attr('data-id') }, function() {
             get_comment_list(questionid, $commentlist);
         });
     });
@@ -127,7 +127,7 @@ function bind_buttons() {
  */
 function get_comment_list(questionid, $commentlist) {
     console.log(questionid);
-    $.get('../../question/behaviour/studentquiz/comment_list.php?questionid=' + questionid, function(data) {
+    $.get($('#baseurlmoodle').val() + '/question/behaviour/studentquiz/comment_list.php?questionid=' + questionid, function(data) {
         $commentlist.html(data);
         bind_buttons();
     });
