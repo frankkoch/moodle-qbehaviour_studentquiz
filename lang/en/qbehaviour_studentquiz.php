@@ -36,6 +36,6 @@ $string['comment_help'] = 'Write a comment to the question';
 $string['comment_help_help'] = 'Write a comment to the question';
 
 /** moodle quiz state override */
-$string['answeredandmodified'] = 'Answered and verified';
+$string['answeredandmodified'] = 'Answered and checked';
 $string['notyetanswered'] = 'Not yet answered';
 $string['answered'] = 'Answered';
