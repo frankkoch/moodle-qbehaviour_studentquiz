@@ -37,7 +37,7 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
  * @copyright  2015 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qbehaviour_immediatefeedback_type_test extends basic_testcase {
+class qbehaviour_studentquiz_type_test extends basic_testcase {
 
     /** @var qbehaviour_immediatefeedback_type */
     protected $behaviourtype;

@@ -38,7 +38,7 @@ require_once(dirname(__FILE__) . '/../../../engine/tests/helpers.php');
  * @copyright  2009 The Open University
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qbehaviour_immediatefeedback_walkthrough_test extends qbehaviour_walkthrough_test_base {
+class qbehaviour_stundetquiz_walkthrough_test extends qbehaviour_walkthrough_test_base {
     public function test_immediatefeedback_feedback_multichoice_right() {
 
         // Create a true-false question with correct answer true.
