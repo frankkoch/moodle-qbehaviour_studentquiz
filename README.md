@@ -1,24 +1,18 @@
 # moodle-qbehaviour_studentquiz
 
-The studentquiz question behaviour extends the immediate feedback question behaviour. 
-In addition to the immediate feedback the studentquiz behaviour allows you to rate 
-and comment on questions in quizzes. After the immediate feedback of a question
-the behaviour shows the rating using stars and user comments. The users have to rate the questions answered and 
-can add a comment.
+The Student-Quiz Question Behaviour extends the immediate feedback question behaviour. 
+In addition to the immediate feedback the Student-Quiz Behaviour allows you to rate 
+and comment question after the user checked the answer for grading.  
 
 ![Screenshot](pix/illustration.png "Screenshot")
 
 ## Installation
 
-The studentquiz question behaviour depends on the studentquiz activity. First install
-[Studentquiz Activity](https://github.com/frankkoch/moodle-mod_studentquiz).
+The studentquiz question behaviour depends on the Student-Quiz activity. First install
+[Student-Quiz Activity](https://github.com/frankkoch/moodle-mod_studentquiz).
 
-Download the zip file from github. Unzip the downloaded file *moodle-qbehaviour_studentquiz-master.zip*,
-rename it to *studentquiz* and move it to your *moodle_installation_path/question/behaviour/*. Login as 
-an Admin and follow the installation instructions. 
-
-Another way to install the studentquiz behaviour is going to the *Site administration -> Plugins -> Install plugins* page. 
-Note that the folder name and the zip have to be named *studentquiz*.
+The simplest way to install the Student-Quiz Behaviour is going to the *Site administration -> Plugins -> Install plugins* page. 
+**Important:** The zip and the folder name in the zip have to be named *studentquiz*.
 
 ## License
 
