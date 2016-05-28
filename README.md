@@ -12,6 +12,7 @@ The Student-Quiz Question Behaviour depends on the Student-Quiz activity. First 
 [Student-Quiz Activity](https://github.com/frankkoch/moodle-mod_studentquiz).
 
 The simplest way to install the Student-Quiz Question Behaviour is going to the *Site administration -> Plugins -> Install plugins* page. 
+
 **Important:** The zip and the folder name in the zip have to be named *studentquiz*.
 
 ## License
