@@ -15,12 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains tests that walks a question through the immediate feedback
- * behaviour.
+ * This file contains tests that walks a question through the immediate feedback behaviour.
  *
- * @package    qbehaviour
- * @subpackage immediatefeedback
- * @copyright  2009 The Open University
+ * @package    qbehaviour_studentquiz
+ * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

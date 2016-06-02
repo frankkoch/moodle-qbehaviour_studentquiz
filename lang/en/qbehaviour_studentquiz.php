@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,7 +17,7 @@
 /**
  * Language Texts
  *
- * @package    mod_studentquiz
+ * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -35,7 +34,7 @@ $string['vote_error'] = 'Please Rate';
 $string['comment_help'] = 'Write a comment';
 $string['comment_help_help'] = 'Write a comment to the question';
 
-/** moodle quiz state override */
+// Moodle quiz state override.
 $string['answeredandmodified'] = 'Answered and checked';
 $string['notyetanswered'] = 'Not yet answered';
 $string['answered'] = 'Answered';

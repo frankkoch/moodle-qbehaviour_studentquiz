@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,7 +17,7 @@
 /**
  *  Defines the question behaviour type studentquiz class
  *
- * @package    mod_studentquiz
+ * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,17 +25,24 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * This class represents the type of behaviour, rather than the instance of the
- * behaviour which control a particular question attempt.
+ * Represents the type of behaviour.
  *
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_studentquiz_type extends question_behaviour_type  {
+    /**
+     * is archetypal
+     * @return bool
+     */
     public function is_archetypal() {
         return true;
     }
 
+    /**
+     * can question finish during the attempt
+     * @return bool
+     */
     public function can_questions_finish_during_the_attempt() {
         return true;
     }
