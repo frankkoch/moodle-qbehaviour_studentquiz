@@ -14,19 +14,17 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Javascript for save rating and save, remove and listing comments 
+ * Javascript for save rating and save, remove and listing comments
  *
  * @package    mod_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 $(document).ready(function() {
-    /**
-     *  Ajax request POST on CLICK for add comment
-     */
+     // Ajax request POST on CLICK for add comment.
     $('.studentquiz_behaviour .add_comment').on('click', function() {
         var $comments = $(this).closest('.comments');
-        var $field =  $comments.find('.add_comment_field');
+        var $field = $comments.find('.add_comment_field');
         var questionid = $field.attr('name').substr(1);
         var $commentlist = $comments.children('.comment_list');
 
@@ -36,9 +34,7 @@ $(document).ready(function() {
         })
     });
 
-    /**
-     * Ajax request POST on CLICK for add rating
-     */
+    // Ajax request POST on CLICK for add rating.
     $('.studentquiz_behaviour .vote .rating .rateable').on('click', function() {
         var rate = $(this).attr('data-rate');
         var $that = $(this);
@@ -46,7 +42,7 @@ $(document).ready(function() {
             var $ratingStars = $that.closest('.rating').children('span');
             $ratingStars.removeClass('star');
             $ratingStars.addClass('star-empty');
-            $ratingStars.each(function(index) { 
+            $ratingStars.each(function(index) {
                 if ($(this).attr('data-rate') <= rate) {
                     $(this).removeClass('star-empty');
                     $(this).addClass('star');
@@ -57,10 +53,7 @@ $(document).ready(function() {
         });
     });
 
-    /**
-     * On CLICK check if student submitted result and has rated if not
-     * abort next and show error for rating
-     */
+    // On CLICK check if student submitted result and has rated if not abort next and show error for rating.
     $('.submitbtns input[name="next"]').on('click', function(event) {
         $that = $(this);
 
@@ -85,16 +78,14 @@ $(document).ready(function() {
             return false;
         } else {
             $that.submit();
-            return true; 
+            return true;
         }
     });
 
     bind_buttons();
 });
 
-/**
- * Binding action buttons after refresh comment list
- */
+// Binding action buttons after refresh comment list.
 function bind_buttons() {
     $('.studentquiz_behaviour .show_more').on('click', function() {
         $('.studentquiz_behaviour .comment_list div').removeClass('hidden');

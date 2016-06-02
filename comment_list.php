@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,10 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Ajax request to this script gives all comments of a question back. 
- * Requires GET param "question_id"
- * 
- * @package    mod_studentquiz
+ * Ajax request to this script gives all comments of a question back. Requires GET param "question_id"
+ *
+ * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

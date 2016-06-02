@@ -37,6 +37,3 @@ $plugin->dependencies = array(
     'mod_studentquiz' => ANY_VERSION
 );
 $plugin->maturity     = MATURITY_STABLE;
-
-
-

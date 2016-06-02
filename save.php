@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -17,13 +16,14 @@
 
 /**
  * Ajax requests to this script saves the ratings and comments.
- * Require POST params: 
+ *
+ * Require POST params:
  * "save" can be "vote" or "comment" (save type),
  * "questionid" is necessary for every request,
  * "rate" is necessary if the save type is "vote"
  * "text" is necessary if the save type is "comment"
  *
- * @package    mod_studentquiz
+ * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -44,7 +44,7 @@ if (!isset($_POST['questionid']) || empty($_POST['questionid'])) {
 $data->questionid = intval($_POST['questionid']);
 
 if (!isset($_POST['save']) || empty($_POST['save'])) {
-   return;
+    return;
 }
 
 switch($_POST['save']) {
@@ -58,7 +58,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 /**
  * saves question rating
- * 
+ *
  * @param  stdClass $data requires userid, questionid
  */
 function save_vote($data) {
@@ -80,7 +80,7 @@ function save_vote($data) {
 
 /**
  * saves question comment
- * 
+ *
  * @param  stdClass $data requires userid, questionid
  */
 function save_comment($data) {
@@ -90,7 +90,7 @@ function save_comment($data) {
         return;
     }
 
-    // prevent XSS
+    // Prevent XSS.
     $data->comment = htmlspecialchars($_POST['text'], ENT_QUOTES, 'UTF-8');
     $data->created = usertime(time(), usertimezone());
 

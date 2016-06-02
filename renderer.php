@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,7 +17,7 @@
 /**
  * Defines the renderer studentquiz class for question behaviours.
  *
- * @package    mod_studentquiz
+ * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,17 +28,18 @@ require_once(dirname(__FILE__) . '/lib.php');
 
 /**
  * Renderer class studentquix for question behaviours with rating and commenting.
+ *
  * Coordinates rendering rating and commenting in additional to default.
  *
- * @package    mod_studentquiz
+ * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
 
     /**
-     *  Generate some HTML to display comment list 
-     * 
+     *  Generate some HTML to display comment list
+     *
      * @param  int $questionid Question id
      * @return string HTML fragment
      */
@@ -49,7 +49,7 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
 
     /**
      * Add submit button to controls
-     * 
+     *
      * @param question_attempt $qa a question attempt.
      * @param question_display_options $options controls what should and should not be displayed.
      * @return string HTML fragment.
@@ -78,7 +78,8 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
                 . html_writer::div(
                     $this->render_vote($qa->get_question()->id)
                     . $this->render_comment($qa->get_question()->id), 'studentquiz_behaviour')
-                    . html_writer::tag('input', '', array('type' => 'hidden', 'name' => 'baseurlmoodle', 'id' => 'baseurlmoodle', 'value' => $CFG->wwwroot))
+                    . html_writer::tag('input', '', array('type' => 'hidden', 'name' => 'baseurlmoodle'
+            , 'id' => 'baseurlmoodle', 'value' => $CFG->wwwroot))
                 . html_writer::start_div('none')
                 . html_writer::start_div('none');
         }
@@ -88,9 +89,9 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
 
     /**
      * Generate some HTML to display rating options
-     * 
-     * @param  int $question_id Question id
-     * @param  boolean $selected shows the selected vote    
+     *
+     * @param  int $questionid Question id
+     * @param  boolean $selected shows the selected vote
      * @param  boolean $readonly describes if rating is readonly
      * @return string HTML fragment
      */
@@ -112,7 +113,7 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
         }
 
         $choices = '';
-        $votes = [5,4,3,2,1];
+        $votes = [5, 4, 3, 2, 1];
         foreach ($votes as $vote) {
             $class = 'star-empty';
             if ($vote <= $selected) {
@@ -121,18 +122,20 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
             $choices .= html_writer::span('', $rateable . $class, array('data-rate' => $vote, 'data-questionid' => $questionid));
         }
         return get_string('vote_title', 'qbehaviour_studentquiz')
-            . $this->output->help_icon('vote_help', 'qbehaviour_studentquiz') . ': ' 
-            . html_writer::div($choices, 'rating') . html_writer::div(get_string('vote_error', 'qbehaviour_studentquiz'), 'hide error');
+            . $this->output->help_icon('vote_help', 'qbehaviour_studentquiz') . ': '
+            . html_writer::div($choices, 'rating')
+            . html_writer::div(get_string('vote_error', 'qbehaviour_studentquiz'), 'hide error');
     }
 
     /**
      * Generate some HTML to display comment form for add comment
-     * 
-     * @param  int $questionid Question id 
-     * @return string HTML fragment 
+     *
+     * @param  int $questionid Question id
+     * @return string HTML fragment
      */
     protected function comment_form($questionid) {
-        return html_writer::tag('p', get_string('add_comment', 'qbehaviour_studentquiz') . $this->output->help_icon('comment_help', 'qbehaviour_studentquiz') . ':')
+        return html_writer::tag('p', get_string('add_comment', 'qbehaviour_studentquiz')
+            . $this->output->help_icon('comment_help', 'qbehaviour_studentquiz') . ':')
             . html_writer::tag('p', html_writer::tag(
                 'textarea', '',
                  array('class' => 'add_comment_field', 'name' => 'q' . $questionid)))
@@ -140,14 +143,14 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
                 'button',
                 get_string('add_comment', 'qbehaviour_studentquiz'),
                 array('type' => 'button', 'class' => 'add_comment'))
-        );
+            );
     }
 
     /**
      *  Generate some HTML to display rating
-     * 
+     *
      * @param  int $questionid Question id
-     * @return string HTML fragment 
+     * @return string HTML fragment
      */
     protected function render_vote($questionid) {
         global $DB, $USER;
@@ -164,9 +167,9 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
 
     /**
      *  Generate some HTML to display the complete comment fragment
-     * 
-     * @param  int $questionid Question id 
-     * @return string HTML fragment 
+     *
+     * @param  int $questionid Question id
+     * @return string HTML fragment
      */
     protected function render_comment($questionid) {
         return html_writer::div(

@@ -17,10 +17,9 @@
 /**
  * This file contains tests for the immediate feedback behaviour type class.
  *
- * @package   qbehaviour_immediatefeedback
- * @category  test
- * @copyright 2015 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    qbehaviour_studentquiz
+ * @copyright  2016 HSR (http://www.hsr.ch)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
