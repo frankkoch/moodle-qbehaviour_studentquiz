@@ -38,7 +38,7 @@ require_once(dirname(__FILE__) . '/lib.php');
 class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
 
     /**
-     *  Generate some HTML to display comment list
+     * Generate some HTML to display comment list
      *
      * @param  int $questionid Question id
      * @return string HTML fragment
@@ -147,7 +147,7 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
     }
 
     /**
-     *  Generate some HTML to display rating
+     * Generate some HTML to display rating
      *
      * @param  int $questionid Question id
      * @return string HTML fragment
@@ -166,7 +166,7 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
     }
 
     /**
-     *  Generate some HTML to display the complete comment fragment
+     * Generate some HTML to display the complete comment fragment
      *
      * @param  int $questionid Question id
      * @return string HTML fragment
