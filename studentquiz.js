@@ -49,7 +49,7 @@ $(document).ready(function() {
                 }
             });
 
-            $('.studentquiz_behaviour .vote .error').addClass('hide');
+            $('.studentquiz_behaviour > .vote > .error').addClass('hide');
         });
     });
 
@@ -58,6 +58,7 @@ $(document).ready(function() {
         $that = $(this);
 
         if (
+            !$('.im-controls input[type="submit"]').length ||
             $('.im-controls input[type="submit"]').filter(function() {
                 return this.name.match(/^q.+\-submit$/);
             }).is(':disabled')
@@ -73,8 +74,8 @@ $(document).ready(function() {
                 $that.submit();
                 return true;
             }
-
-            $('.studentquiz_behaviour .vote .error').removeClass('hide');
+            
+            $('.studentquiz_behaviour > .vote > .error').removeClass('hide');
             return false;
         } else {
             $that.submit();
