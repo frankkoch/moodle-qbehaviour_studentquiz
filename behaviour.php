@@ -57,7 +57,7 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
     }
 
     /**
-     * process save
+     * Process save
      * @param question_attempt_pending_step $pendingstep
      * @return bool
      * @throws coding_exception
@@ -68,7 +68,7 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
     }
 
     /**
-     * get the display state string
+     * Get the display state string
      * @param bool $showcorrectness
      * @return string
      * @throws coding_exception

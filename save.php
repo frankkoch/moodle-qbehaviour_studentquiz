@@ -57,7 +57,7 @@ switch($_POST['save']) {
 header('Content-Type: text/html; charset=utf-8');
 
 /**
- * saves question rating
+ * Saves question rating
  *
  * @param  stdClass $data requires userid, questionid
  */
@@ -79,7 +79,7 @@ function save_vote($data) {
 }
 
 /**
- * saves question comment
+ * Saves question comment
  *
  * @param  stdClass $data requires userid, questionid
  */
@@ -96,5 +96,3 @@ function save_comment($data) {
 
     $DB->insert_record('studentquiz_comment', $data);
 }
-
-
