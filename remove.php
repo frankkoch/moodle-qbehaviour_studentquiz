@@ -23,10 +23,9 @@
  */
 
 define('AJAX_SCRIPT', true);
-define('MOODLE_INTERNAL', true);
 
+require_once(dirname(__FILE__) . '/../../../config.php');
 require_once(dirname(__FILE__) . '/lib.php');
-
 
 if (!isset($_POST['id']) || empty($_POST['id'])) {
     return http_response_code(404);

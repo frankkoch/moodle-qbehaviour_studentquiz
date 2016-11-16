@@ -74,7 +74,7 @@ function save_vote($data) {
         $DB->insert_record('studentquiz_vote', $data);
     } else {
         $row->vote = $data->vote;
-        $var = $DB->update_record('studentquiz_vote', $row);
+        $DB->update_record('studentquiz_vote', $row);
     }
 }
 

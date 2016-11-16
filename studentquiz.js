@@ -74,7 +74,7 @@ $(document).ready(function() {
                 $that.submit();
                 return true;
             }
-            
+
             $('.studentquiz_behaviour > .vote > .error').removeClass('hide');
             return false;
         } else {
@@ -108,7 +108,7 @@ function bind_buttons() {
     $('.studentquiz_behaviour .remove_action').on('click', function() {
         var questionid = $(this).attr('data-question_id');
         var $commentlist = $(this).closest('.comments').children('.comment_list');
-        $.post($('#baseurlmoodle').val() + 'question/behaviour/studentquiz/remove.php', { id: $(this).attr('data-id') }, function() {
+        $.post($('#baseurlmoodle').val() + '/question/behaviour/studentquiz/remove.php', { id: $(this).attr('data-id') }, function() {
             get_comment_list(questionid, $commentlist);
         });
     });

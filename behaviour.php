@@ -51,7 +51,7 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
         global $PAGE;
 
         // Add jQuery and StudentQuiz frontend logic everything else didnt work!
-        $PAGE->requires->js('/question/behaviour/studentquiz/jquery-1.12.3.min.js', true);
+        $PAGE->requires->js('/question/behaviour/studentquiz/jquery-3.1.1.min.js', true);
         $PAGE->requires->js('/question/behaviour/studentquiz/studentquiz.js', true);
         parent::__construct($qa, $preferredbehaviour);
     }
