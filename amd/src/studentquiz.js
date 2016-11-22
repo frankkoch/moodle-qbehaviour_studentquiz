@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/* jshint latedef:nofunc */
+
 /**
  * Javascript for save rating and save, remove and listing comments
  *
