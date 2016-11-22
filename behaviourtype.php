@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- *  Defines the question behaviour type studentquiz class
+ *  Defines the question behaviour type StudentQuiz class
  *
  * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)

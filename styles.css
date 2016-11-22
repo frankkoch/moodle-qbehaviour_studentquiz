@@ -19,8 +19,8 @@
 }
 
 .studentquiz_behaviour .comment_list div {
-    border-top: 1px solid #eee;
     border-bottom: 1px solid #fff;
+    border-top: 1px solid #eee;
     padding: 15px 0;
     position: relative;
 }
@@ -47,8 +47,8 @@ div.none, .hidden {
 
 .studentquiz_behaviour .vote .rating {
     cursor: not-allowed;
-    display: inline-block;
     direction: rtl;
+    display: inline-block;
     unicode-bidi: bidi-override;
 }
 

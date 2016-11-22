@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the renderer studentquiz class for question behaviours.
+ * Defines the renderer StudentQuiz class for question behaviours.
  *
  * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
@@ -24,6 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once(dirname(__FILE__) . '/../../../config.php');
 require_once(dirname(__FILE__) . '/lib.php');
 
 /**

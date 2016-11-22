@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Studentquiz qbehaviour lib
+ * StudentQuiz qbehaviour lib
  *
  * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
