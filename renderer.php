@@ -45,7 +45,7 @@ class qbehaviour_studentquiz_renderer extends qbehaviour_renderer {
      * @return string HTML fragment
      */
     public function comment_list($questionid) {
-        return comment_renderer($questionid);
+        return studentquiz_comment_renderer($questionid);
     }
 
     /**
