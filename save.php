@@ -32,6 +32,8 @@ define('AJAX_SCRIPT', true);
 
 require_once(dirname(__FILE__) . '/../../../config.php');
 
+require_login();
+
 $data = new \stdClass();
 if (!isset($USER->id) || empty($USER->id)) {
     return;
@@ -48,9 +50,9 @@ if (!isset($_POST['save']) || empty($_POST['save'])) {
 }
 
 switch($_POST['save']) {
-    case 'vote': save_vote($data);
+    case 'vote': qbehaviour_studentquiz_save_vote($data);
         break;
-    case 'comment': save_comment($data);
+    case 'comment': qbehaviour_studentquiz_save_comment($data);
         break;
 }
 
@@ -61,7 +63,7 @@ header('Content-Type: text/html; charset=utf-8');
  *
  * @param  stdClass $data requires userid, questionid
  */
-function save_vote($data) {
+function qbehaviour_studentquiz_save_vote($data) {
     global $DB, $USER;
 
     if (!isset($_POST['rate']) || empty($_POST['rate'])) {
@@ -83,7 +85,7 @@ function save_vote($data) {
  *
  * @param  stdClass $data requires userid, questionid
  */
-function save_comment($data) {
+function qbehaviour_studentquiz_save_comment($data) {
     global $DB;
 
     if (!isset($_POST['text']) || empty($_POST['text'])) {

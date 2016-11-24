@@ -27,7 +27,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'qbehaviour_studentquiz';
+$plugin->component    = 'qbehaviour_studentquiz';
 $plugin->version      = 2016111600;
 $plugin->release      = 'v1.0.5';
 $plugin->requires     = 2015102300; // Version 3.0.
