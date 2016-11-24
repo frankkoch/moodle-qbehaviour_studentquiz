@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * StudentQuiz qbehaviour lib
+ * StudentQuiz qbehaviour locallib
  *
  * @package    qbehaviour_studentquiz
  * @copyright  2016 HSR (http://www.hsr.ch)
@@ -31,7 +31,7 @@ require_once(dirname(__FILE__) . '/../../../config.php');
  *
  * @return boolean the current user is not a student
  */
-function check_created_permission() {
+function studentquiz_check_created_permission() {
     global $USER;
 
     $admins = get_admins();
@@ -54,7 +54,7 @@ function check_created_permission() {
  * @param  int $questionid Question id
  * @return string HTML fragment
  */
-function comment_renderer($questionid) {
+function studentquiz_comment_renderer($questionid) {
     global $DB;
     $modname = 'qbehaviour_studentquiz';
 
@@ -78,7 +78,7 @@ function comment_renderer($questionid) {
         $user = $DB->get_record('user', array('id' => $comment->userid));
         $username = ($user !== false ? $user->username : '');
         $html .= html_writer::div(
-            (check_created_permission() ? html_writer::span('remove', 'remove_action',
+            (studentquiz_check_created_permission() ? html_writer::span('remove', 'remove_action',
                 array(
                     'data-id' => $comment->id,
                     'data-question_id' => $comment->questionid

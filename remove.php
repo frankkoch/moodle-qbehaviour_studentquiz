@@ -31,9 +31,11 @@ if (!isset($_POST['id']) || empty($_POST['id'])) {
     return http_response_code(404);
 }
 
+require_login();
+
 header('Content-Type: text/html; charset=utf-8');
 
-if (check_created_permission()) {
+if (studentquiz_check_created_permission()) {
     $DB->delete_records('studentquiz_comment', array('id' => intval($_POST['id'])));
 } else {
     return http_response_code(401);
