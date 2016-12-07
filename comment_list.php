@@ -27,12 +27,10 @@ define('AJAX_SCRIPT', true);
 require_once(dirname(__FILE__) . '/../../../config.php');
 require_once(dirname(__FILE__) . '/lib.php');
 
-if (!isset($_GET['questionid']) || empty($_GET['questionid'])) {
-    return http_response_code(404);
-}
+$questionid = required_param('questionid', PARAM_INT);
 
 require_login();
 
 header('Content-Type: text/html; charset=utf-8');
 
-echo studentquiz_comment_renderer(intval($_GET['questionid']));
+echo qbehaviour_studentquiz_comment_renderer($questionid);
