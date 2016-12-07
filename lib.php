@@ -31,9 +31,10 @@ require_once(dirname(__FILE__) . '/../../../config.php');
  *
  * @return boolean the current user is not a student
  */
-function studentquiz_check_created_permission() {
-    global $USER;
+function qbehaviour_studentquiz_check_created_permission($commentid) {
+    global $USER, $DB;
 
+    // Check if user is admin.
     $admins = get_admins();
     foreach ($admins as $admin) {
         if ($USER->id == $admin->id) {
@@ -41,7 +42,8 @@ function studentquiz_check_created_permission() {
         }
     }
 
-    if (!user_has_role_assignment($USER->id, 5)) {
+    // Check if user is comment creator.
+    if ($DB->get_field('studentquiz_comment', 'userid', array('id' => $commentid)) == $USER->id) {
         return true;
     }
 
@@ -54,7 +56,7 @@ function studentquiz_check_created_permission() {
  * @param  int $questionid Question id
  * @return string HTML fragment
  */
-function studentquiz_comment_renderer($questionid) {
+function qbehaviour_studentquiz_comment_renderer($questionid) {
     global $DB;
     $modname = 'qbehaviour_studentquiz';
 
@@ -78,7 +80,7 @@ function studentquiz_comment_renderer($questionid) {
         $user = $DB->get_record('user', array('id' => $comment->userid));
         $username = ($user !== false ? $user->username : '');
         $html .= html_writer::div(
-            (studentquiz_check_created_permission() ? html_writer::span('remove', 'remove_action',
+            (qbehaviour_studentquiz_check_created_permission($comment->id) ? html_writer::span('remove', 'remove_action',
                 array(
                     'data-id' => $comment->id,
                     'data-question_id' => $comment->questionid
