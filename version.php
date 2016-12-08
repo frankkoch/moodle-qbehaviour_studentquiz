@@ -28,8 +28,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component    = 'qbehaviour_studentquiz';
-$plugin->version      = 2016112400;
-$plugin->release      = 'v1.0.6';
+$plugin->version      = 2016120800;
+$plugin->release      = 'v1.0.7';
 $plugin->requires     = 2015102300; // Version 3.0.
 $plugin->dependencies = array(
     'qbehaviour_immediatefeedback' => 2015111600,
