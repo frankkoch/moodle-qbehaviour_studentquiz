@@ -30,6 +30,7 @@ require_once(dirname(__FILE__) . '/lib.php');
 $commentid = required_param('id', PARAM_INT);
 
 require_login();
+require_sesskey();
 
 header('Content-Type: text/html; charset=utf-8');
 

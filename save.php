@@ -45,6 +45,10 @@ $data->questionid = $questionid;
 
 $save = required_param('save', PARAM_NOTAGS);
 
+file_put_contents('D:/test.txt', $_POST['sesskey'] . ' 1 ' . $save . "\n", FILE_APPEND);
+require_sesskey();
+file_put_contents('D:/test.txt', $_POST['sesskey'] . ' 2 ' . $save . "\n", FILE_APPEND);
+
 switch($save) {
     case 'vote': qbehaviour_studentquiz_save_vote($data);
         break;
@@ -62,10 +66,7 @@ header('Content-Type: text/html; charset=utf-8');
 function qbehaviour_studentquiz_save_vote($data) {
     global $DB, $USER;
 
-    if (!isset($_POST['rate']) || empty($_POST['rate'])) {
-        return;
-    }
-    $data->vote = intval($_POST['rate']);
+    $data->vote = required_param('rate', PARAM_INT);
 
     $row = $DB->get_record('studentquiz_vote', array('userid' => $USER->id, 'questionid' => $data->questionid));
     if ($row === false) {
