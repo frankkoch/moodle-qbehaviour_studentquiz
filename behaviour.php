@@ -28,6 +28,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once(dirname(__FILE__) . '/../immediatefeedback/behaviour.php');
+require_once(dirname(__FILE__) . '/gradecalc.php');
 
 /**
  * Question behaviour for immediate feedback with voting and commenting questions.
@@ -72,6 +73,12 @@ class qbehaviour_studentquiz extends qbehaviour_immediatefeedback {
      * @throws coding_exception
      */
     public function get_state_string($showcorrectness) {
+        global $USER, $quiz;
+        if ( !defined('GRADE_CALCULATED') && strpos($_SERVER['REQUEST_URI'], 'quiz/review.php') > 0 && $quiz != null) {
+            get_user_quiz_grade($USER->id, $quiz);
+            define('GRADE_CALCULATED', true);
+        }
+
         switch($this->qa->get_state()) {
             case question_state::$gradedpartial:
             case question_state::$gradedright:
