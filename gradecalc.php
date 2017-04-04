@@ -66,13 +66,13 @@ function get_user_quiz_grade($userid, $quiz) {
             .'max(fraction) * suatt.maxmark as mark '
             .'from {question_attempt_steps} suats '
             .'  left JOIN {question_attempts} suatt on suats.questionattemptid = suatt.id '
-            .'WHERE state in ("gradedright", "gradedpartial") '
+            .'WHERE state in (\'gradedright\', \'gradedpartial\') '
             .'        AND userid = :userid AND suatt.questionid IN (SELECT q.id '
             .'                                            FROM {question} q '
             .'                                              LEFT JOIN {question_categories} qc ON q.category = qc.id '
             .'                                              LEFT JOIN {context} c ON qc.contextid = c.id '
             .'                                            WHERE c.instanceid = :cmid2 AND c.contextlevel = 70) '
-            .'GROUP BY suatt.questionid) as sub ';
+            .'GROUP BY suatt.questionid, suatt.id, suats.questionattemptid) as sub ';
 
         $grades = $DB->get_record_sql($sql, array(
             'cmid' => $squizdata->cmid, 'cmid2' => $squizdata->cmid,

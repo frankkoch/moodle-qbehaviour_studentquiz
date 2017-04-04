@@ -44,10 +44,7 @@ $questionid = required_param('questionid', PARAM_INT);
 $data->questionid = $questionid;
 
 $save = required_param('save', PARAM_NOTAGS);
-
-file_put_contents('D:/test.txt', $_POST['sesskey'] . ' 1 ' . $save . "\n", FILE_APPEND);
 require_sesskey();
-file_put_contents('D:/test.txt', $_POST['sesskey'] . ' 2 ' . $save . "\n", FILE_APPEND);
 
 switch($save) {
     case 'vote': qbehaviour_studentquiz_save_vote($data);
