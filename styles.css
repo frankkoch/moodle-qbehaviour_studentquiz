@@ -41,10 +41,6 @@
     margin: 0;
 }
 
-div.none, .hidden {
-    display: none;
-}
-
 .studentquiz_behaviour .vote .rating {
     cursor: not-allowed;
     direction: rtl;
